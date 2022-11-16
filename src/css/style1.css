@@ -28,3 +28,7 @@ div.container {
     height: 200px;
     background-color: skyblue;
 }
+no-match{
+    width: 50vw;
+    background: url(../img/5.jpg);
+}

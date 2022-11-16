@@ -1,16 +1,16 @@
 import React from 'react'
 import Style from '@/css/style1'
-const News=(props)=>{
+const MyTest=(props)=>{
+    console.log("myrest props:",props);
     return (
         <div className={Style.container}>
-            <h2>News组件</h2>
-            <p>美食</p>
+            <h2>MyTest组件</h2>
             <button onClick={()=>{
-                props.history.push("/course")
+                props.history.push("/books");
             }}>
-                跳转到course页面
+                跳转到books
             </button>
         </div>
     )
 }
-export default News;
+export default MyTest;
