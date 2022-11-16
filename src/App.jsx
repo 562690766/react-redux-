@@ -6,7 +6,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h3>App组件1234</h3>
+                <h3>App组件12345678</h3>
                 <BaseRouter></BaseRouter>
             </div>
         )
