@@ -70,7 +70,9 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.jsx', '.less', '.js', '.css']
+        extensions: ['.jsx', '.less', '.js', '.css'],
+        alias: {
+            "@": path.join(__dirname, "./src")
+        }
     }
-
 }

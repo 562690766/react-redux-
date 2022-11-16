@@ -1,0 +1,30 @@
+body,ul {
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    list-style-type: none;
+    overflow: hidden;
+}
+.nav li {
+    float:left;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right:6px;
+}
+.nav li a{
+    display: block;
+    background-color: #99f;
+    text-decoration: none;
+    color:#111;
+}
+.nav li a:hover{
+    background-color: #9f9;
+}
+div.container {
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+}
