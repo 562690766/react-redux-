@@ -13,6 +13,30 @@ const PrivateRoute=({component:Component,...rest})=>{
         <Route {...rest} render={props=>(<Component {...props}/>)}/>
     )
 }
+// 创建路由配置助手
+const routes=[
+    {
+        path:"/",
+        component:Home,
+        exact:true
+    },
+    {
+        path:"/news/food",
+        component:News,
+    },
+    {
+        path:"/books",
+        component:Books,
+    },
+    {
+        path:"/travle/:user",
+        component:Travle,
+    },
+    {
+        path:"/course",
+        component:Course,
+    },
+]
 const BaseRouter=()=>{
     return (
         <>
@@ -39,14 +63,28 @@ const BaseRouter=()=>{
                         </li>
                     </ul>
                     <Switch>
-                        <Route path="/" exact component={Home}></Route>
-                        <Route path="/news/food" component={News}></Route>
-                        <Route path="/books" component={Books}></Route>
-                        <Route path="/travle/:user" component={Travle}></Route>
-                        <PrivateRoute path="/play" component={Play}></PrivateRoute>
+                        {/* 纯手写 */}
+                        {
+                            routes.map((value,index)=>{
+                                return (
+                                    <Router key={index}
+                                        path={value.path}
+                                        component={value.component}
+                                        {...value}
+                                    ></Router>
+                                )
+                            })
+                        }
+
+                        {/* <Route path="/" exact component={Home}></Route> */}
+                        {/* <Route path="/news/food" component={News}></Route> */}
+                        {/* <Route path="/books" component={Books}></Route> */}
+                        {/* <Route path="/travle/:user" component={Travle}></Route> */}
+                        {/* <Route path="/course" exact component={Course}></Route> */}
+
                         {/* 重定向组件 */}
                         <Redirect from="/news" to="/news/food"></Redirect>
-                        <Route path="/course" exact component={Course}></Route>
+                        <PrivateRoute path="/play" component={Play}></PrivateRoute>
 
                         <Route component={NoMatch}></Route>
                     </Switch>

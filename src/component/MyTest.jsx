@@ -1,5 +1,6 @@
 import React from 'react'
 import Style from '@/css/style1'
+import { withRouter } from 'react-router-dom';
 const MyTest=(props)=>{
     console.log("myrest props:",props);
     return (
@@ -13,4 +14,4 @@ const MyTest=(props)=>{
         </div>
     )
 }
-export default MyTest;
+export default withRouter(MyTest);
