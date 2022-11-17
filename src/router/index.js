@@ -9,6 +9,9 @@ import Play from '@/component/Play'
 import NoMatch from '@/component/NoMatch'
 import Course from '@/component/Course'
 import {renderRoutes} from "react-router-config"
+import BookChild from './child/BookChild'
+/* import Child1 from '@/component/child/Child1'
+import Child2 from '@/component/child/Child2' */
 const PrivateRoute=({component:Component,...rest})=>{
     return(
         <Route {...rest} render={props=>(<Component {...props}/>)}/>
@@ -43,6 +46,21 @@ const routes=[
         component:Play,
     },
     {
+        path:"/BookChild333",
+        component:BookChild,
+        
+    },
+/*     {
+        path:"/BookChild/child1",
+        component:Child1,
+        exact:true,
+    },
+    {
+        path:"/BookChild/child2",
+        component:Child2,
+        exact:true,
+    }, */
+    {
         component:NoMatch
     }
 ]
@@ -70,39 +88,26 @@ const BaseRouter=()=>{
                         <li>
                             <NavLink to="/Course">Course页面</NavLink>
                         </li>
+{/* 二级菜单 */}
+                         <li>
+                            <NavLink to="/BookChild333">BookChild页面</NavLink>
+                        </li>
+                       {/* <li>
+                            <NavLink to="/BookChild/child1">Child11111页面</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/BookChild/child2">Child22222页面</NavLink>
+                        </li> */}
                     </ul>
                     <Switch>
-                        {/* 纯手写 ，配置式路由方法1*/}
-                        {/* {
-                            routes.map((value,index)=>{
-                                return (
-                                    <Router key={index}
-                                        path={value.path}
-                                        component={value.component}
-                                        {...value}
-                                    ></Router>
-                                )
-                            })
-                        } */}
                         {/* 配置式路由方法2 */}
-                        {/* 遍历存储路由配置得助手 */}
-                        
+                        {/* 遍历存储路由配置得助手 */}     
                         <PrivateRoute path="/course" component={Course}/>
-                        {/* <Route component={NoMatch}/> */}
-
-
-
-                        {/* <Route path="/" exact component={Home}></Route> */}
-                        {/* <Route path="/news/food" component={News}></Route> */}
-                        {/* <Route path="/books" component={Books}></Route> */}
-                        {/* <Route path="/travle/:user" component={Travle}></Route> */}
-                        {/* <Route path="/course" exact component={Course}></Route> */}
-
                         {/* 重定向组件 buggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg*/}
-                        <Redirect from="/news" to="/news/food"></Redirect>
+                        {/* <Redirect from="/news" to="/news/food"></Redirect> */}
                         <PrivateRoute path="/play" component={Play}></PrivateRoute>
                         {renderRoutes(routes)}
-                        {/* <Route component={NoMatch}></Route> */}
+
                     </Switch>
                 </div>
             </Router>
