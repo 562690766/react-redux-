@@ -8,6 +8,7 @@ import Travle from '@/component/Travle'
 import Play from '@/component/Play'
 import NoMatch from '@/component/NoMatch'
 import Course from '@/component/Course'
+import {renderRoutes} from "react-router-config"
 const PrivateRoute=({component:Component,...rest})=>{
     return(
         <Route {...rest} render={props=>(<Component {...props}/>)}/>
@@ -21,7 +22,7 @@ const routes=[
         exact:true
     },
     {
-        path:"/news/food",
+        path:"/news",
         component:News,
     },
     {
@@ -36,6 +37,14 @@ const routes=[
         path:"/course",
         component:Course,
     },
+    {
+        // 私有路由也要添加
+        path:"/play",
+        component:Play,
+    },
+    {
+        component:NoMatch
+    }
 ]
 const BaseRouter=()=>{
     return (
@@ -63,8 +72,8 @@ const BaseRouter=()=>{
                         </li>
                     </ul>
                     <Switch>
-                        {/* 纯手写 */}
-                        {
+                        {/* 纯手写 ，配置式路由方法1*/}
+                        {/* {
                             routes.map((value,index)=>{
                                 return (
                                     <Router key={index}
@@ -74,7 +83,14 @@ const BaseRouter=()=>{
                                     ></Router>
                                 )
                             })
-                        }
+                        } */}
+                        {/* 配置式路由方法2 */}
+                        {/* 遍历存储路由配置得助手 */}
+                        
+                        <PrivateRoute path="/course" component={Course}/>
+                        {/* <Route component={NoMatch}/> */}
+
+
 
                         {/* <Route path="/" exact component={Home}></Route> */}
                         {/* <Route path="/news/food" component={News}></Route> */}
@@ -82,11 +98,11 @@ const BaseRouter=()=>{
                         {/* <Route path="/travle/:user" component={Travle}></Route> */}
                         {/* <Route path="/course" exact component={Course}></Route> */}
 
-                        {/* 重定向组件 */}
+                        {/* 重定向组件 buggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg*/}
                         <Redirect from="/news" to="/news/food"></Redirect>
                         <PrivateRoute path="/play" component={Play}></PrivateRoute>
-
-                        <Route component={NoMatch}></Route>
+                        {renderRoutes(routes)}
+                        {/* <Route component={NoMatch}></Route> */}
                     </Switch>
                 </div>
             </Router>
