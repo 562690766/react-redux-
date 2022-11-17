@@ -24,9 +24,7 @@ body,ul {
     background-color: #9f9;
 }
 div.container {
-    width: 200px;
-    height: 200px;
-    background-color: skyblue;
+    color:#222;
 }
 no-match{
     width: 50vw;

@@ -1,8 +1,48 @@
-.special {
-    background: #09f;
-    color: #fff;
+body,ul,p,h2,h3 {
+    margin: 0;
+    padding: 0;
 }
-
-.one {
-    background: #090;
+ul.nav {
+    overflow: hidden;
+    list-style-type: none;
+}
+ul.nav li {
+    float:left;
+    width: 25vw;
+    height:3vw;
+    line-height: 3vw;
+    text-align: center;
+}
+ul.nav li a:link,ul.nav li a:visited{
+    display: block;
+    background-color: #99f;
+    color:#fff;
+    text-decoration: none;
+}
+ul.nav li a:hover{
+    background-color:palevioletred;
+    color:brown;
+}
+.banner{
+    width: 100vw;
+}
+.content {
+    color:#222;
+}
+.content p {
+    padding:16px;
+}
+.content h2,.content h3 {
+    padding:16px;
+}
+.footer {
+    position: fixed;
+    bottom:0;
+    width: 100vw;
+    background-color: #09f;
+    color:#fff;
+    text-align: center;
+    height: 2vw;
+    line-height: 2vw;
+    font:1vw/2em 微软雅黑;
 }
