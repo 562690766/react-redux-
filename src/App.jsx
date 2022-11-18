@@ -1,17 +1,25 @@
+import React,{Component} from 'react'
+import {connect} from "react-redux"
+// import {add,sub} from './actions/action1'
+import {ADD,SUB} from './actions/action1'
 
-import React, { Component } from 'react'
-/* import ReactDOM from 'react-dom'
-import {createStore} from 'redux'
-import App from './App'
- */
-class App extends Component {
-    render() {
+class App extends Component{
+    render(){
+        let {dispatch,count}=this.props;
         return (
             <div>
-                <h3>App组件1234</h3>
-                
+                <h3>app组件</h3>
+                <p>count:{count}</p>
+                <button onClick={()=>dispatch(ADD())}>+</button>
+                <button onClick={()=>dispatch(SUB())}>-</button>
             </div>
         )
     }
 }
-export default App;
+const manStoreToProps=(state)=>{
+    return {
+        count:state
+    }
+}
+
+export default connect(manStoreToProps)(App);
