@@ -1,12 +1,27 @@
-import {add,sub} from '../constants/constant'
-export const counter=(state=0,action)=>{
-    console.log("reducer");
+/* import {ADD,SUB} from '../constants/constant'
+
+const counter=(state=0,action)=>{
     switch(action.type){
-        case add:
+        case ADD:
             return state+1;
-        case sub:
+        case SUB:
             return state-1;
         default:
             return state;
     }
+} 
+export default counter;*/
+
+
+import {ADD,SUB} from '../constants/constant'
+const counter =(state=0,action)=>{
+    switch(action.type){
+        case ADD:
+            return state+1;
+        case SUB:
+            return state-1;
+        default :
+            return state;
+    }
 }
+export default counter;

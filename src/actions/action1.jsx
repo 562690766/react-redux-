@@ -1,11 +1,24 @@
-import {add,sub} from "../constants/constant"
-export const ADD=()=>{
+/* import {ADD,SUB} from '../constants/constant'
+export const add=()=>{
+    return{
+        type:ADD
+    } 
+}
+export const sub=()=>{
+    return{
+        type:SUB
+    } 
+}
+ */
+
+import {ADD,SUB} from '../constants/constant'
+export const add=()=>{
     return {
-        type:add
+        type:ADD
     }
 }
-export const SUB=()=>{
+export const sub=()=>{
     return {
-        type:sub
+        type:SUB
     }
 }
